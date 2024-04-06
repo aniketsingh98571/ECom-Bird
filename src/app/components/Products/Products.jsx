@@ -2,11 +2,12 @@
 import React,{useState} from "react"
 import Card from "./Card"
 import { useQuery } from "@tanstack/react-query"
+import Link from "next/link"
 export default function Products(){
     const [page, setPage] = useState(1);
      const limit = 10;
 
-     const fetchProducts = async (key, page = 1) => {
+     const fetchProducts = async (page) => {
         const response = await fetch(`https://dummyjson.com/products?limit=${limit}&skip=${ page * limit}`);
         const data = await response.json();
         return data;
@@ -15,10 +16,11 @@ export default function Products(){
         isLoading,
         error,
         data: products,
-      } = useQuery({ queryKey: ['products',page], queryFn: fetchProducts })
+      } = useQuery({ queryKey: ['products',page], queryFn:()=>fetchProducts(page), keepPreviousData : true})
+
       if(error){
         return (
-            <p>Something went wrong...</p>
+            <p>Something went wrong...,{error.message}</p>
         )
       }
       const nextHandler=()=>{
@@ -38,15 +40,19 @@ export default function Products(){
                     {
                         products.products.map((item)=>{
                             return (
-                                <Card data={item} key={item.id}/>
+                              <Link href={`/products/${item.id}`} className="w-[23%]" key={item.id}>
+                                <Card data={item} />
+                              </Link>
                             )
                         })
                 
                     }
                 </div>
               }
-              <div onClick={nextHandler}>Next</div>
-              <div onClick={prevHandler}>Prev</div>
+              <div className="flex items-center justify-center gap-4">
+                <div  className="bg-[#000000] text-[#ffffff] rounded-md py-4 cursor-pointer text-center inline-block w-[100px]" onClick={prevHandler}>Prev</div>
+                <div onClick={nextHandler} className="bg-[#000000] cursor-pointer text-[#ffffff] text-center rounded-md py-4 w-[100px] inline-block">Next</div>
+              </div>
         </section>
     )
 }

@@ -1,12 +1,12 @@
 import React from "react"
 import Image from "next/image"
-import game from '@/app/assets/images/game.png'
 import eye from '@/app/assets/images/eye.png'
 import heart from '@/app/assets/images/heart.png'
+import Link from "next/link"
 export default function Card({data}){
     console.log(data)
     return (
-             <div className="w-[23%] cursor-pointer">
+             <div className="w-[100%] cursor-pointer">
                     <div className="bg-[#F5F5F5] p-4 rounded-md flex items-center justify-center relative">
                         <div className="w-[150px] h-[150px]">
                            <Image  fill={true} src={data.thumbnail} alt={data.brand}/>

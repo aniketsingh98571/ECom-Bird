@@ -4,7 +4,10 @@ import Image from 'next/image'
 import game from '@/app/assets/images/game.png'
 import delivery from '@/app/assets/images/delivery.png'
 import { Rating } from 'react-simple-star-rating'
+import { useParams } from 'next/navigation'
 export default function Product(){
+    const {id} =useParams()
+    console.log(id)
     return (
         <section className="w-page-width max-w-center-width py-4 mx-auto">
             <div className='flex justify-between'>
