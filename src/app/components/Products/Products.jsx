@@ -20,13 +20,13 @@ export default function Products(){
 
       if(error){
         return (
-            <p>Something went wrong...,{error.message}</p>
+            <p>Something went wrong:{error.message}</p>
         )
       }
-      const nextHandler=()=>{
+      const nextHandler = () =>{
         setPage(prevPage => prevPage + 1);
       }
-      const prevHandler=()=>{
+      const prevHandler = () =>{
         setPage(prevPage => prevPage > 1 ? prevPage - 1 : prevPage);
       }
     return (
@@ -50,8 +50,8 @@ export default function Products(){
                 </div>
               }
               <div className="flex items-center justify-center gap-4">
-                <div  className="bg-[#000000] text-[#ffffff] rounded-md py-4 cursor-pointer text-center inline-block w-[100px]" onClick={prevHandler}>Prev</div>
-                <div onClick={nextHandler} className="bg-[#000000] cursor-pointer text-[#ffffff] text-center rounded-md py-4 w-[100px] inline-block">Next</div>
+                <div  className="bg-b-black text-t-white rounded-md py-4 cursor-pointer text-center inline-block w-[100px]" onClick={prevHandler}>Prev</div>
+                <div onClick={nextHandler} className="bg-b-black cursor-pointer text-t-white text-center rounded-md py-4 w-[100px] inline-block">Next</div>
               </div>
         </section>
     )

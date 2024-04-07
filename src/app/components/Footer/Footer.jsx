@@ -3,7 +3,7 @@ import socials from '@/app/assets/images/socials.png'
 import Image from "next/image"
 export default function Footer(){
     return(
-        <footer className="bg-[#000000] text-[#ffffff]">
+        <footer className="bg-b-black text-t-white">
             <div className="w-page-width max-w-center-width py-4 mx-auto flex items-center justify-between">
                 <div className="flex justify-between w-[100%] py-4">
                     <div>

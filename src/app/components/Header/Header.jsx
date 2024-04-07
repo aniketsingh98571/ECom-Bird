@@ -21,9 +21,9 @@ export default function Header(){
                     <p>Sign Up</p>
                 </div>
                 <div className="flex items-center gap-4">
-                    <div className="bg-[#F5F5F5] py-4 px-10 rounded-md relative mr-6">
+                    <div className="bg-skin-b py-4 px-10 rounded-md relative mr-6">
                         <div>
-                            <input className="bg-[#F5F5F5] outline-0 " type="search" placeholder="What are you looking for?"/>
+                            <input className="bg-skin-b outline-0 " type="search" placeholder="What are you looking for?"/>
                         </div>
                         <div>
                             <Image width={20} className="absolute right-5 top-4" src={search} alt="Search"/>
