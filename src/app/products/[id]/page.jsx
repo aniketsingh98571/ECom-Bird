@@ -37,10 +37,10 @@ export default function Product(){
                     </div>
                     <div className='flex items-center flex-wrap gap-4 mt-4 cursor-pointer'>
                         {
-                            product.images.map((image)=>{
+                            product.images.map((image,i)=>{
                                 return (
-                                    <div className="hover:scale-110 transition-transform duration-200"> 
-                                      <Image width={200} height={200}  src={product.thumbnail} alt={`${product.title}`}/>
+                                    <div className="hover:scale-110 transition-transform duration-200" key={i}> 
+                                      <Image width={200} height={200}  src={image} alt={`${product.title}`}/>
                                      </div>
                                 )
                             })
